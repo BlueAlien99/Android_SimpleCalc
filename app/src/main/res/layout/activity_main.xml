@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryRd"
+    tools:context="com.bluealien99.simplecalc.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/grids"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <GridView
+            android:id="@+id/numpad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="2"
+            android:drawSelectorOnTop="true"
+            android:listSelector="@drawable/numpadsel"
+            android:numColumns="3"
+            android:stretchMode="columnWidth" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/delkey"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clickable="true">
+
+                <com.bluealien99.simplecalc.delKey
+                    style="@style/keypad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/keypadsel"
+                    android:text="DEL" />
+            </FrameLayout>
+
+            <GridView
+                android:id="@+id/keypad"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:drawSelectorOnTop="true"
+                android:numColumns="2"
+                android:stretchMode="columnWidth" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/grids">
+
+        <HorizontalScrollView
+            android:id="@+id/outputH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/output"
+                style="@style/equation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+        </HorizontalScrollView>
+
+        <ListView
+            android:id="@+id/hisList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/outputH" />
+
+        <View
+            android:id="@+id/eqcover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            android:background="@color/colorAccent3"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</RelativeLayout>
